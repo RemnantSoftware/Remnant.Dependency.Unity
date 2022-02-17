@@ -8,5 +8,5 @@ Unity dependency injection adapter
         
 ```csharp
 var unity = new UnityContainer();
-var container = Container.Create("UnityContainer", new UnityAdapter(unity));
+var container = Container.Create("MyContainer", new UnityAdapter(unity));
 ```
