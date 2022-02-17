@@ -1,4 +1,4 @@
-# Remnant.Dependency.Unity
+# Remnant Dependency Unity
 Unity dependency injection adapter
 
 
