@@ -41,9 +41,15 @@ namespace Remnant.Dependency.Unity
 			throw new NotSupportedException("Deregister not supported, lifetime manager not used to remove objects.");
 		}
 
-		public IContainer Register<TType>(TType instance) where TType : class
+		public IContainer Register<TType>(object instance) where TType : class
 		{
-			_container.RegisterInstance(instance);
+			_container.RegisterInstance<TType>(instance as TType);
+			return this;
+		}
+
+		public IContainer Register(Type type, object instance)
+		{
+			_container.RegisterInstance(type, instance);
 			return this;
 		}
 
