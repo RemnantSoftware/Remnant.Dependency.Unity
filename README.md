@@ -4,7 +4,7 @@ Unity dependency injection adapter
 
 ## Nuget package:
 
-        Install-Package Remnant.Dependency.Unity -Version 1.0.0
+        Install-Package Remnant.Dependency.Unity -Version 1.0.1
         
 ```csharp
 var unity = new UnityContainer();
