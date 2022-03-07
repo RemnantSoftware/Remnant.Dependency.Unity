@@ -10,10 +10,7 @@ namespace Remnant.Dependency.Unity
 
 		public UnityAdapter(IUnityContainer unityContainer)
 		{
-			if (unityContainer == null)
-				throw new ArgumentNullException(nameof(unityContainer));
-
-			_container = unityContainer;
+			_container = unityContainer ?? throw new ArgumentNullException(nameof(unityContainer));
 		}
 
 		public IContainer Clear()
@@ -77,7 +74,13 @@ namespace Remnant.Dependency.Unity
 		{
 			return _container.Resolve<TType>();
 		}
+
+		public TContainer InternalContainer<TContainer>() where TContainer : class
+		{
+			if (_container as TContainer == null)
+				throw new InvalidCastException($"The internal container is of type {_container.GetType().FullName} and cannot be cast to {typeof(TContainer).FullName}");
+
+			return _container as TContainer;
+		}
 	}
-
-
 }
