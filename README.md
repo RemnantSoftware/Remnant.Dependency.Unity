@@ -14,5 +14,5 @@ var container = Container.Create("MyContainer", new UnityAdapter(unity));
 
 Get direct access to the internal DI container
 ```csharp
-var unity = Container.Instance.InternalContainer<UnityContainer>();
+var unity = Container.InternalContainer<UnityContainer>();
 ```
